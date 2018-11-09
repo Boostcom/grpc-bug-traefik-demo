@@ -1,0 +1,23 @@
+defaultEntryPoints = ["https"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+#    [entryPoints.http]
+
+[accessLog]
+[api]
+
+[file]
+
+[backends]
+  [backends.backend1]
+    [backends.backend1.servers.server1]
+    # Access on backend with h2c
+    url = "h2c://localhost:9001"
+
+
+[frontends]
+  [frontends.frontend1]
+  entryPoints = ["http"]
+  backend = "backend1"
